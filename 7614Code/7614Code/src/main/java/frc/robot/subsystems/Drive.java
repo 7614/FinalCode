@@ -12,9 +12,12 @@ import frc.robot.commands.UserDrive;
 public class Drive extends Subsystem{
 
     DifferentialDrive base_drive = new DifferentialDrive(RobotMap.leftGroup, RobotMap.rightGroup); //takes inputs of 2 motor controller groups
+    @Overide
+    protected static void initDefaultCommand(){
+        setDefaultCommand(new ArcadeDrive());
+    }
 
-
-public void teleopDrive(){
+    public void teleopDrive(XboxController xbox){
 
 }
 }

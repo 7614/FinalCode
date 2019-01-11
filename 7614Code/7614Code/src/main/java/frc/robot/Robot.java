@@ -6,8 +6,9 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-
-import edu.wpi.first.wpilibj.TimedRobot;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import edu.wpi.first.wpilibj.*;
+import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -25,7 +26,12 @@ import frc.robot.subsystems.ExampleSubsystem;
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
-
+  private final WPI_VictorSPX frontRight = new WPI_VictorSPX(RobotMap.FRONTRIGHTMOTOR);
+  private final WPI_VictorSPX frontLeft = new WPI_VictorSPX(RobotMap.FRONTLEFTMOTOR);
+  private final WPI_VictorSPX backRight = new WPI_VictorSPX(RobotMap.BACKRIGHTMOTOR);
+  private final WPI_VictorSPX backLeft = new WPI_VictorSPX(RobotMap.BACKLEFTMOTOR);
+  public final SpeedControllerGroup rightGroup = new SpeedControllerGroup(frontLeft, backLeft);
+  public final SpeedControllerGroup leftGroup = new SpeedControllerGroup(frontRight, backRight);
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
