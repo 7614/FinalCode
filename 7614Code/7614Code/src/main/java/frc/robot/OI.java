@@ -19,7 +19,7 @@ public class OI {
   // number it is.
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber);
-  public final XBoxController name = new XBoxController(RobotMap.JOYSTICKPORT);
+  public final XboxController xbox = new XboxController(RobotMap.JOYSTICKPORT);
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
@@ -39,4 +39,12 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
+  /**
+   * Returns the joystick object used to control the robot, currently an 
+   * xbox controller.
+   * @return the xbox controller object
+   */
+  public XboxController getJoystick(){
+    return xbox;
+  }
 }
